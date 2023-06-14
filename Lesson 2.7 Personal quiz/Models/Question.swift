@@ -13,7 +13,7 @@ struct Question {
     static func getQuestions() -> [Question] {
         [
             Question(
-                title: "Какую пишу вы предпочитаете",
+                title: "Какую пишу вы предпочитаете?",
                 responseType: .single,
                 answers: [
                     Answer(title: "Стейк", animal: .dog),
@@ -23,7 +23,7 @@ struct Question {
                 ]
             ),
             Question(
-                title: "Что вам нравится больше",
+                title: "Что вам нравится больше?",
                 responseType: .multiple,
                 answers: [
                     Answer(title: "Плавать", animal: .dog),
@@ -39,7 +39,7 @@ struct Question {
                     Answer(title: "Ненавижу", animal: .cat),
                     Answer(title: "Нервничаю", animal: .rabbit),
                     Answer(title: "Не замечаю", animal: .turtle),
-                    Answer(title: "Обожая", animal: .dog)
+                    Answer(title: "Обожаю", animal: .dog)
                 ]
             )
         ]

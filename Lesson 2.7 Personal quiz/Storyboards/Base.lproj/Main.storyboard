@@ -263,11 +263,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Вопрос №" id="LKC-TP-bLu">
                         <barButtonItem key="backBarButtonItem" title="Back" id="gxz-ha-n96"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="s8k-9s-k0L">
-                            <connections>
-                                <segue destination="BPZ-Ij-bLF" kind="show" id="qoX-Yq-2n5"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="multilpleStackView" destination="53o-F0-ubB" id="pia-0S-oLs"/>
@@ -331,7 +326,13 @@
                             <constraint firstItem="HNK-bc-2Zy" firstAttribute="centerY" secondItem="uQy-dv-Z3r" secondAttribute="centerY" id="xgL-DM-XZc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Результат" id="reA-EE-Qcp"/>
+                    <navigationItem key="navigationItem" title="Результат" id="reA-EE-Qcp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="gQR-Nm-xOU">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="BPZ-Ij-bLF" id="NSB-L8-pl4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpf-6J-dWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,9 +357,6 @@
             <point key="canvasLocation" x="700" y="35.532233883058474"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="6V5-50-338"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
