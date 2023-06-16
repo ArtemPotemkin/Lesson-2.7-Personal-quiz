@@ -7,17 +7,17 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+final class ResultViewController: UIViewController {
 
-    var resultAnswers: [Answer]!
-    var resultAnimals: [Animal] {
-        resultAnswers.map {$0.animal}
-    }
-    
-    var animalsCount: [Animal : Int] = [:]
-    
+    // MARK: - IBOutlets
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var definitionLabel: UILabel!
+    
+    var resultAnswers: [Answer]!
+    
+    private var resultAnimals: [Animal] {
+        resultAnswers.map {$0.animal}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,9 @@ class ResultViewController: UIViewController {
         //dismiss(animated: true)
     }
     
+    // MARK: - Private Methods
     private func calculateResult() -> Animal {
+        var animalsCount: [Animal : Int] = [:]
         resultAnimals.forEach {
             animalsCount[$0, default: 0] += 1
         }

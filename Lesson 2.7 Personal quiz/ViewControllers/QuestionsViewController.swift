@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuestionsViewController: UIViewController {
+final class QuestionsViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet var questionProgressView: UIProgressView!
@@ -30,6 +30,7 @@ class QuestionsViewController: UIViewController {
         }
     }
     
+    // MARK: - Private Properties
     private let questions = Question.getQuestions()
     private var answersChosen: [Answer] = []
     private var questionIndex = 0
