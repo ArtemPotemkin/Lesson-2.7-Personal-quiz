@@ -21,8 +21,9 @@ final class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.setHidesBackButton(true, animated: true)
-        showResult()
+        navigationItem.setHidesBackButton(true, animated: false)
+        //navigationItem.hidesBackButton = true - вот получше решение для скрытия кнопки back
+        calculateResult()
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
@@ -33,18 +34,19 @@ final class ResultViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-    private func calculateResult() -> Animal {
+    private func calculateResult() {
         var animalsCount: [Animal : Int] = [:]
         resultAnimals.forEach {
             animalsCount[$0, default: 0] += 1
         }
         let sortedAnimals = animalsCount.sorted { $0.value > $1.value}
-        return sortedAnimals.first?.key ?? .cat
+        guard let finalAnimal = sortedAnimals.first?.key else { return }
+        showResult(animal: finalAnimal)
     }
     
-    private func showResult() {
-        resultLabel.text = "Вы - \(calculateResult().rawValue)"
-        definitionLabel.text = calculateResult().definition
+    private func showResult(animal: Animal) {
+        resultLabel.text = "Вы - \(animal.rawValue)"
+        definitionLabel.text = animal.definition
     }
     
     deinit {
