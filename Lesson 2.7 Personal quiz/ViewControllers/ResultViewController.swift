@@ -22,9 +22,7 @@ final class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.setHidesBackButton(true, animated: true)
-        resultLabel.text = "Вы - \(calculateResult().rawValue)"
-        definitionLabel.text = calculateResult().definition
-        
+        showResult()
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
@@ -41,7 +39,12 @@ final class ResultViewController: UIViewController {
             animalsCount[$0, default: 0] += 1
         }
         let sortedAnimals = animalsCount.sorted { $0.value > $1.value}
-        return sortedAnimals[0].key
+        return sortedAnimals.first?.key ?? .cat
+    }
+    
+    private func showResult() {
+        resultLabel.text = "Вы - \(calculateResult().rawValue)"
+        definitionLabel.text = calculateResult().definition
     }
     
     deinit {
