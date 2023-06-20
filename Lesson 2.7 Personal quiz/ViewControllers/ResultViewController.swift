@@ -3,7 +3,7 @@
 //  Lesson 2.7 Personal quiz
 // 12
 //  Created by Артём Потёмкин on 13.06.2023.
-//
+// add this line from GitHub...
 
 import UIKit
 
